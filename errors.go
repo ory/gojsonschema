@@ -314,13 +314,13 @@ func newError(err ResultError, context *JsonContext, value interface{}, locale l
 		details["context"] = context.String()
 	}
 
-	err.SetDescription(formatErrorDescription(err.DescriptionFormat(), details))
+	err.SetDescription(FormatErrorDescription(err.DescriptionFormat(), details))
 }
 
-// formatErrorDescription takes a string in the default text/template
+// FormatErrorDescription takes a string in the default text/template
 // format and converts it to a string with replacements. The fields come
 // from the ErrorDetails struct and vary for each type of error.
-func formatErrorDescription(s string, details ErrorDetails) string {
+func FormatErrorDescription(s string, details ErrorDetails) string {
 
 	var tpl *template.Template
 	var descrAsBuffer bytes.Buffer

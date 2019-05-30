@@ -173,7 +173,7 @@ func (v ResultErrorFields) String() string {
 		}
 	}
 
-	return formatErrorDescription(Locale.ErrorFormat(), ErrorDetails{
+	return FormatErrorDescription(Locale.ErrorFormat(), ErrorDetails{
 		"context":     v.context.String(),
 		"description": v.description,
 		"value":       valueString,
@@ -198,7 +198,7 @@ func (v *Result) AddError(err ResultError, details ErrorDetails) {
 		details["context"] = err.Context().String()
 	}
 
-	err.SetDescription(formatErrorDescription(err.DescriptionFormat(), details))
+	err.SetDescription(FormatErrorDescription(err.DescriptionFormat(), details))
 
 	v.errors = append(v.errors, err)
 }

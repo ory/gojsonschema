@@ -186,7 +186,7 @@ func (p *schemaPool) GetDocument(reference gojsonreference.JsonReference) (*sche
 
 	// It is not possible to load anything remotely that is not canonical...
 	if !reference.IsCanonical() {
-		return nil, errors.New(formatErrorDescription(
+		return nil, errors.New(FormatErrorDescription(
 			Locale.ReferenceMustBeCanonical(),
 			ErrorDetails{"reference": reference.String()},
 		))
