@@ -174,7 +174,7 @@ func (s *SubSchema) AddEnum(i interface{}) error {
 	}
 
 	if isStringInSlice(s.enum, *is) {
-		return errors.New(formatErrorDescription(
+		return errors.New(FormatErrorDescription(
 			Locale.KeyItemsMustBeUnique(),
 			ErrorDetails{"key": KEY_ENUM},
 		))
@@ -226,7 +226,7 @@ func (s *SubSchema) SetElse(subSchema *SubSchema) {
 func (s *SubSchema) AddRequired(value string) error {
 
 	if isStringInSlice(s.required, value) {
-		return errors.New(formatErrorDescription(
+		return errors.New(FormatErrorDescription(
 			Locale.KeyItemsMustBeUnique(),
 			ErrorDetails{"key": KEY_REQUIRED},
 		))

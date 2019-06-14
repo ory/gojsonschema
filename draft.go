@@ -96,7 +96,7 @@ func parseSchemaURL(documentNode interface{}) (string, *Draft, error) {
 
 	if existsMapKey(m, KEY_SCHEMA) {
 		if !isKind(m[KEY_SCHEMA], reflect.String) {
-			return "", nil, errors.New(formatErrorDescription(
+			return "", nil, errors.New(FormatErrorDescription(
 				Locale.MustBeOfType(),
 				ErrorDetails{
 					"key":  KEY_SCHEMA,

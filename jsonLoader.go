@@ -185,7 +185,7 @@ func (l *jsonReferenceLoader) loadFromHTTP(address string) (interface{}, error) 
 
 	// must return HTTP Status 200 OK
 	if resp.StatusCode != http.StatusOK {
-		return nil, errors.New(formatErrorDescription(Locale.HttpBadStatus(), ErrorDetails{"status": resp.Status}))
+		return nil, errors.New(FormatErrorDescription(Locale.HttpBadStatus(), ErrorDetails{"status": resp.Status}))
 	}
 
 	bodyBuff, err := ioutil.ReadAll(resp.Body)
