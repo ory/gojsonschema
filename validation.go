@@ -608,7 +608,7 @@ func (v *SubSchema) validateObject(currentSubSchema *SubSchema, value map[string
 		} else {
 			result.addInternalError(
 				new(RequiredError),
-				context,
+				NewJsonContext(requiredProperty, context),
 				value,
 				ErrorDetails{"property": requiredProperty},
 			)
