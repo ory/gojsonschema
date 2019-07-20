@@ -29,7 +29,6 @@ package gojsonschema
 import (
 	"errors"
 	"fmt"
-	"log"
 	"reflect"
 
 	"github.com/ory/gojsonreference"
@@ -185,7 +184,6 @@ func (p *schemaPool) GetDocument(reference gojsonreference.JsonReference) (*sche
 		return spd, nil
 	}
 
-	log.Printf("IS CANONICAL %+v %v", reference, reference.IsCanonical())
 	// It is not possible to load anything remotely that is not canonical...
 	if !reference.IsCanonical() {
 		return nil, errors.New(FormatErrorDescription(
