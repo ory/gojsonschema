@@ -32,7 +32,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/xeipuuv/gojsonreference"
+	"github.com/ory/gojsonreference"
 )
 
 // Constants
