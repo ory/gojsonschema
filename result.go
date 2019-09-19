@@ -204,7 +204,7 @@ func (v *Result) Valid() bool {
 }
 
 // Errors returns the errors that were found
-func (v *Result) Errors() []ResultError {
+func (v *Result) Errors() ResultErrors {
 	return v.errors
 }
 
