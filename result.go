@@ -28,6 +28,7 @@ package gojsonschema
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 type (
@@ -82,12 +83,28 @@ type (
 
 	// Result holds the result of a validation
 	Result struct {
-		errors []ResultError
+		errors ResultErrors
 		// Scores how well the validation matched. Useful in generating
 		// better error messages for anyOf and oneOf.
 		score int
 	}
 )
+
+type ResultErrors []ResultError
+
+func (e ResultErrors) Error() string {
+	if len(e) > 0 {
+		return lowerCaseFirst(e[0].Description())
+	}
+	panic("no errors available")
+}
+
+func lowerCaseFirst(str string) string {
+	for i, v := range str {
+		return string(unicode.ToLower(v)) + str[i+1:]
+	}
+	return ""
+}
 
 // Field returns the field name without the root context
 // i.e. firstName or person.firstName instead of (root).firstName or (root).person.firstName
